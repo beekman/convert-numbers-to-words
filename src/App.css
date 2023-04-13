@@ -2,3 +2,7 @@ main {
   text-align: center;
   vertical-align: center;
 }
+
+main input {
+	width: 98%;
+}

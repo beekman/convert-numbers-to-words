@@ -1,39 +1,42 @@
 import React, { useState } from 'react';
-import { numberToWords } from '../utils/convertToWords';
+import { numberToWords, wordsToNumber } from '../utils/numberConverter';
 
-const ConvertibleDisplay: React.FC = () => {
-  const [number, setNumber] = useState<number>(0);
+const NumberWordsConverterComponent: React.FC = () => {
+  const [number, setNumber] = useState<string>('0');
   const [words, setWords] = useState<string>('zero');
 
   const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newNumber = parseInt(e.target.value, 10);
-    if (!isNaN(newNumber)) {
-      setNumber(newNumber);
-      setWords(numberToWords(newNumber));
-    }
+    const newNumber = e.target.value;
+    setNumber(newNumber);
+    setWords(numberToWords(parseInt(newNumber.replace(/,/g, ''), 10)));
+  };
+
+  const handleWordsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newWords = e.target.value;
+    setWords(newWords);
+    setNumber(wordsToNumber(newWords));
   };
 
   return (
-    <>
+    <div>
 			<h2>Convertible Display</h2>
-			<div>
-	      <label htmlFor="number-input">Enter a number:</label>
-	      <input
-	        id="number-input"
-	        type="number"
-	        value={number}
-	        onChange={handleNumberChange}
-	      />
-			</div>
-      <label htmlFor="words-output">Number in words:</label>
+      <label htmlFor="number-input">Enter a number:</label>
       <input
-        id="words-output"
+        id="number-input"
+        type="text"
+        value={number}
+        onChange={handleNumberChange}
+      />
+
+      <label htmlFor="words-input">Number in words:</label>
+      <input
+        id="words-input"
         type="text"
         value={words}
-        readOnly
+        onChange={handleWordsChange}
       />
-    </>
+    </div>
   );
 };
 
-export default ConvertibleDisplay;
+export default NumberWordsConverterComponent;
