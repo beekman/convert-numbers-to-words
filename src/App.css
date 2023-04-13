@@ -6,3 +6,11 @@ main {
 main input {
 	width: 98%;
 }
+
+main section {
+	margin: 1rem auto 3rem;
+}
+
+main button {
+	margin: 0 0 1rem;
+}

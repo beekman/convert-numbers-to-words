@@ -34,7 +34,7 @@ const RealTimeClock: React.FC = () => {
   };
 
   return (
-    <>
+    <section>
 			<h2>Convertible Clock</h2>
       <div>
         <label>Arabic Number: </label>
@@ -44,7 +44,7 @@ const RealTimeClock: React.FC = () => {
         <label>English Words: </label>
         <input type="text" value={words} onChange={onWordsChange} />
       </div>
-    </>
+    </section>
   );
 };
 

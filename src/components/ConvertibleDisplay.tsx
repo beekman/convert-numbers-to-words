@@ -18,7 +18,7 @@ const NumberWordsConverterComponent: React.FC = () => {
   };
 
   return (
-    <div>
+    <section>
 			<h2>Convertible Display</h2>
       <label htmlFor="number-input">Enter a number:</label>
       <input
@@ -35,7 +35,7 @@ const NumberWordsConverterComponent: React.FC = () => {
         value={words}
         onChange={handleWordsChange}
       />
-    </div>
+    </section>
   );
 };
 
